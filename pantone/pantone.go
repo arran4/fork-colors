@@ -2,6 +2,8 @@
 // https://webtemple.design/resources/all-pantone-c-colors-with-hex-and-rgb-codes.
 //
 // Pantone colors that start with digit have P prepended.
+//go:generate go run ../generator/lookups/main.go
+
 package pantone
 
 import "image/color"

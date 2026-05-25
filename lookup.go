@@ -3,13 +3,12 @@
 package colors
 
 import (
-	"image/color"
-	"strings"
-
 	"github.com/pborman/colors/crayola"
 	"github.com/pborman/colors/pantone"
 	"github.com/pborman/colors/web"
 	"github.com/pborman/colors/x11"
+	"image/color"
+	"strings"
 )
 
 // FromString returns the color associated with the given name.

@@ -6,6 +6,8 @@
 //	https://en.wikipedia.org/wiki/List_of_colors:_G–M
 //	https://en.wikipedia.org/wiki/List_of_colors:_A–F
 //	https://en.wikipedia.org/wiki/List_of_colors:_N–Z
+//go:generate go run generator/lookups/main.go -root
+
 package colors
 
 import "image/color"
