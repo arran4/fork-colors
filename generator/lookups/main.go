@@ -74,9 +74,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	subPkgs := strings.Split(*subpkgsFlag, ",")
-	if len(subPkgs) == 1 && subPkgs[0] == "" {
-		subPkgs = nil
+	var subPkgs []string
+	if *rootFlag {
+		for _, s := range strings.Split(*subpkgsFlag, ",") {
+			if t := strings.TrimSpace(s); t != "" {
+				subPkgs = append(subPkgs, t)
+			}
+		}
 	}
 
 	generateLookupFile(pkgName, *outFlag, colors, *rootFlag, subPkgs)
