@@ -56,7 +56,7 @@ func TestToString(t *testing.T) {
 				t.Errorf("ToString(%v) returned empty, expected something", tt.input)
 			}
 			if tt.expected == "" && name != "" {
-			    t.Errorf("ToString(%v) returned %q, expected empty", tt.input, name)
+				t.Errorf("ToString(%v) returned %q, expected empty", tt.input, name)
 			}
 			// if it's the root color, it should perfectly match
 			if tt.name == "root color" && name != tt.expected {

@@ -198,11 +198,11 @@ func generateLookupFile(pkgName, dir string, colors []Color, isRoot bool) {
 
 	var buf bytes.Buffer
 	err = t.Execute(&buf, struct {
-		Pkg    string
-		Pkgs   []string
+		Pkg  string
+		Pkgs []string
 	}{
-		Pkg:    pkgName,
-		Pkgs:   []string{"web", "x11", "crayola", "pantone"}, // priority order
+		Pkg:  pkgName,
+		Pkgs: []string{"web", "x11", "crayola", "pantone"}, // priority order
 	})
 	if err != nil {
 		panic(err)
