@@ -85,6 +85,7 @@ package colors
 import (
 	"image/color"
 	"strings"
+
 {{- range .Pkgs}}
 	"github.com/pborman/colors/{{.}}"
 {{- end}}
