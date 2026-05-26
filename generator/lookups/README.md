@@ -7,10 +7,10 @@ This tool generates string-to-color and color-to-string lookup maps and function
 From the root of the repository, run:
 
 ```bash
-go generate ./...
+go run generator/lookups/main.go
 ```
 
-This will run the generator using `//go:generate` directives found in the `*.go` files. It will find all variables of type `color.RGBA`, and generate:
+This will parse the `*.go` files in the root and subpackages, find all variables of type `color.RGBA`, and generate:
 - `lookup.go`: Contains `FromString` and `ToString` lookup functions.
 - `name_to_color.go`: Contains the `nameToColor` map mapping lowercase names to `color.RGBA`.
 - `color_to_name.go`: Contains the `colorToName` map mapping `color.RGBA` to string names.

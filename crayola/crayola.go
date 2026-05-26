@@ -1,5 +1,3 @@
-//go:generate go run ../generator/lookups/main.go
-
 package crayola
 
 import "image/color"

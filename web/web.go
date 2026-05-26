@@ -1,7 +1,5 @@
 // Package web provides variables for the standard web colorsl as found in
 // https://en.wikipedia.org/wiki/Web_colors.
-//go:generate go run ../generator/lookups/main.go
-
 package web
 
 import "image/color"

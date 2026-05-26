@@ -1,6 +1,4 @@
 // Package X11 contains the X11 colors from /etc/X11/rgb.txt.
-//go:generate go run ../generator/lookups/main.go
-
 package x11
 
 import "image/color"
