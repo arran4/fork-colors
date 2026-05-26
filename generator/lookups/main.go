@@ -17,9 +17,9 @@ type Color struct {
 	Name string
 }
 
-func parseColors(path string) ([]Color, error) {
+func parseColors(path string, src interface{}) ([]Color, error) {
 	fset := token.NewFileSet()
-	f, err := parser.ParseFile(fset, path, nil, 0)
+	f, err := parser.ParseFile(fset, path, src, 0)
 	if err != nil {
 		return nil, err
 	}
@@ -68,7 +68,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	colors, err := parseColors(inFile)
+	colors, err := parseColors(inFile, nil)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing colors from %s: %v\n", inFile, err)
 		os.Exit(1)

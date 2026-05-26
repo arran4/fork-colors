@@ -1,17 +1,12 @@
 package main
 
 import (
-	"os"
-	"path/filepath"
 	"reflect"
 	"testing"
+	"testing/fstest"
 )
 
 func TestParseColors(t *testing.T) {
-	// Create a temporary Go file with some color definitions.
-	tempDir := t.TempDir()
-	tempFile := filepath.Join(tempDir, "colors_test.go")
-
 	content := `package testpkg
 
 import "image/color"
@@ -25,11 +20,19 @@ var (
 
 var OtherVar = "hello"
 `
-	if err := os.WriteFile(tempFile, []byte(content), 0644); err != nil {
-		t.Fatalf("Failed to write temp file: %v", err)
+	fs := fstest.MapFS{
+		"colors_test.go": &fstest.MapFile{
+			Data: []byte(content),
+		},
 	}
 
-	colors, err := parseColors(tempFile)
+	file, err := fs.Open("colors_test.go")
+	if err != nil {
+		t.Fatalf("Failed to open file from MapFS: %v", err)
+	}
+	defer file.Close()
+
+	colors, err := parseColors("colors_test.go", file)
 	if err != nil {
 		t.Fatalf("parseColors returned error: %v", err)
 	}
